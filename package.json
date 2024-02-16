@@ -3,7 +3,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "start": "public/index.php",
+        
         "build": "vite build"
     },
     "devDependencies": {
