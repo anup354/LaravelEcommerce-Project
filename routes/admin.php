@@ -58,6 +58,9 @@ Route::post('orderstatus/{orderstatus}', [OrderController::class, 'change_status
 Route::get('salesreport', [ReportController::class, 'salesreport'])->name('salesreport')->middleware("admin");
 Route::get('searchsales', [ReportController::class, 'searchsales'])->name('searchsales')->middleware("admin");
 
+Route::get('productreport', [ReportController::class, 'productreport'])->name('productreport')->middleware("admin");
+// Route::get('searchsales', [ReportController::class, 'searchsales'])->name('searchsales')->middleware("admin");
+
 Route::get('download-csv', [ReportController::class, 'downloadCSV'])->name('admin.downloadCSV')->middleware('admin');
 
 Route::get('/invoice/{orderid}', [ReportController::class, 'invoice'])->name('invoice');

@@ -648,11 +648,14 @@ class HomeController extends Controller
 
         $productImage = ProductImage::where("product_id", $product->id)->get();
 
-        $attributeItems = ProductAttribute::join("attribute_groups", "attribute_groups.id", "=", "product_attributes.attribute_group_id")
-            ->select('product_attributes.attribute_group_id', 'attribute_groups.attribute_group_name')
-            ->where('product_id', $product->id)
-            ->distinct()
-            ->get();
+        // $attributeItems = ProductAttribute::join("attribute_groups", "attribute_groups.id", "=", "product_attributes.attribute_group_id")
+        //     ->select('product_attributes.attribute_group_id', 'attribute_groups.attribute_group_name')
+        //     ->where('product_id', $product->id)
+        //     ->distinct()
+        //     ->get();
+
+        $attributeItems = ProductAttribute::where('product_id', $product->id)->get()->groupBy("attribute_group_id");
+
         $reviews = productreview::where("product_id", $product->id)->where("status", "VERIFIED")->latest()->get();
         $sum = productreview::where("product_id", $product->id)->where("status", "VERIFIED")->sum("rating");
         $reviewcount = productreview::where("product_id", $product->id)->where("status", "VERIFIED")->count();
@@ -718,6 +721,7 @@ class HomeController extends Controller
     public function getbycategory(Request $request)
     {
         $categoryId = $request->query('0da2qwz');
+        // dd($categoryId);
         $subtitle = "Category  ";
         $category = Category::where('category_id', $categoryId)->first();
 

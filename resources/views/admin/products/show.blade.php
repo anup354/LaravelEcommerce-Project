@@ -40,7 +40,7 @@
 
                     @if ($product->discount_amount)
                         <span class="ml-2 text-gray-400 line-through float-right"> Rs. {{ $product->product_price }}</span>
-                        @endif
+                    @endif
 
 
 
@@ -68,19 +68,20 @@
                                 {{ $attrubuteitem->attribute_group_id }}
                             @endforeach --}}
 
-                            @foreach ($attributeItems as $attributegroup)
-                            <div class="text-[#f15a28] text-md font-medium">
+                            @foreach ($attributeItems as $attributegroup => $attributes)
+                                <div class="text-[#f15a28] text-md font-medium">
 
-                                {{ $attributegroup->attribute_group_name }}
-                            </div>
-                                @php
+                                    {{ getAttributeGroupName($attributegroup)->attribute_group_name }}
+                                </div>
+                                {{-- @php
                                     $attributes = showAttributes($attributegroup->attribute_group_id, $product->id);
-                                    // dd($attributes);
-                                @endphp
-                                <div class="flex items-center  p-1 text-gray-500 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#f15a28] peer-checked:text-[#f15a28] hover:text-gray-600 hover-bg-gray-100">
+
+                                @endphp --}}
+                                <div
+                                    class="flex items-center  p-1 text-gray-500 border-gray-200 rounded-lg cursor-pointer peer-checked:border-[#f15a28] peer-checked:text-[#f15a28] hover:text-gray-600 hover-bg-gray-100">
                                     @foreach ($attributes as $key => $attributeitem)
                                         <div class="ml-5 border bg-white p-1.5 rounded">
-                                            {{ $attributeitem->attribute_name }}
+                                            {{ getAttributName($attributeitem->attribute_id)->attribute_name }}
                                         </div>
                                     @endforeach
                                 </div>
@@ -96,14 +97,17 @@
                         <span class="font-bold text-gray-600">Added on :</span> {{ $product->created_at->format('F j, Y') }}
                     </div>
                     <div class="mt-4">
-                        <span class="font-bold text-gray-600">Product Stock : </span><span class="text-[#4456a6] text-2xl">{{ $product->product_stock}}</span>
+                        <span class="font-bold text-gray-600">Product Stock : </span><span
+                            class="text-[#4456a6] text-2xl">{{ $product->product_stock }}</span>
                     </div>
                     <div class="mt-4">
-                        <span class="font-bold text-gray-600">Total Product Sold : </span><span class="text-[#4456a6] text-2xl">{{ $product->total_sale ?? 0}}</span>
+                        <span class="font-bold text-gray-600">Total Product Sold : </span><span
+                            class="text-[#4456a6] text-2xl">{{ $product->total_sale ?? 0 }}</span>
                     </div>
                     @if ($product->discount_amount)
                         <div class="mt-4">
-                            <span class="font-bold text-gray-600">Discount Amount :</span> Rs. {{ $product->discount_amount }}
+                            <span class="font-bold text-gray-600">Discount Amount :</span> Rs.
+                            {{ $product->discount_amount }}
                         </div>
                     @endif
 

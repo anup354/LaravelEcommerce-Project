@@ -24,6 +24,18 @@ function getblogs()
 {
     return Blog::get();
 }
+function getProductName($id)
+{
+    return Product::where("id", $id)->first();
+}
+function getAttributeGroupName($id)
+{
+    return AttributeGroup::where("id", $id)->first();
+}
+function getAttributName($id)
+{
+    return Attribute::where("id", $id)->first();
+}
 
 function getSetting()
 {
@@ -115,6 +127,16 @@ function getMetas($segment1, $segment2)
         $category = Category::where('slug', $segment2)->first();
         $meta = (object) [
             'title' => $category->categoryname,
+            'description' => "Category",
+            'featured_image' => "portrait-handsome.jpg",
+        ];
+        // dd($aaa);
+        return $meta;
+    }
+    if ($segment1 === 'categories') {
+
+        $meta = (object) [
+            'title' => "Categories",
             'description' => "Category",
             'featured_image' => "portrait-handsome.jpg",
         ];

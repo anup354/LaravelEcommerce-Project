@@ -28,7 +28,7 @@
                                     <span class="separator mx-2">></span>
                                     <li>
                                         <a
-                                            href="{{ route('getbycategory', ['category' => $breadcrumb->slug . '&0da2qwz=' . $breadcrumb->category_id]) }}">
+                                            href="{{ route('getbycategory', ['category' => $breadcrumb->slug . '?0da2qwz=' . $breadcrumb->category_id]) }}">
                                             {{ $breadcrumb->categoryname }}
                                         </a>
                                     </li>

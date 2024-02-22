@@ -219,30 +219,25 @@
                         @if (!$attributeItems->isEmpty())
                             <div class="mt-4 flex gap-8">
 
-                                @foreach ($attributeItems as $attributegroup)
+                                @foreach ($attributeItems as $attributegroup => $attributes)
                                     <div>
                                         <div class="text-[#4456a6] font-semibold py-1">
-
-                                            {{ $attributegroup->attribute_group_name }}
+                                            {{ getAttributeGroupName($attributegroup)->attribute_group_name }}
                                         </div>
-                                        @php
+                                        {{-- @php
 
                                             $attributes = showAttributes($attributegroup->attribute_group_id, $product->id);
-                                            // dd($attributes);
-                                        @endphp
 
-
-
+                                        @endphp --}}
                                         <div class="flex flex-wrap gap-4">
 
                                             <div class="">
-                                                <select id="{{ $attributegroup->attribute_group_id }}"
-                                                    name="myattributes[{{ $attributegroup->attribute_group_id }}]"
-                                                    {{-- onchange="selectAtrribute(this)" --}}
+                                                <select id="{{ $attributegroup }}"
+                                                    name="myattributes[{{ $attributegroup }}]" {{-- onchange="selectAtrribute(this)" --}}
                                                     class="border cursor-pointer border-gray-200 rounded-lg py-2 px-4 leading-tight focus:outline-none focus:border-blue-500">
                                                     @foreach ($attributes as $attributeitem)
-                                                        <option value="{{ $attributeitem->id }}">
-                                                            {{ $attributeitem->attribute_name }}
+                                                        <option value="{{ $attributeitem->attribute_id }}">
+                                                            {{ getAttributName($attributeitem->attribute_id)->attribute_name }}
                                                         </option>
                                                     @endforeach
                                                 </select>

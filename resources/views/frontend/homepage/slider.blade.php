@@ -85,10 +85,12 @@
         <img class="-mt-[19px] relative top-[50%] w-[38px] h-[38px]" src="img/spin.svg" />
     </div>
     <div data-u="slides" class="cursor-default relative top-0 left-0 w-[980px] h-[380px] overflow-hidden">
-        <div>
-            <img data-u="image" src="{{ asset('images/011.jpg') }}" />
-        </div>
-        <div>
+        @foreach ($banners as $banner)
+            <div>
+                <img data-u="image" src="{{ asset('uploads/' . $banner->banner_image) }}" class="object-cover" />
+            </div>
+        @endforeach
+        {{-- <div>
             <img data-u="image" src="{{ asset('images/012.jpg') }}" />
         </div>
         <div>
@@ -102,7 +104,7 @@
         </div>
         <div>
             <img data-u="image" src="{{ asset('images/016.jpg') }}" />
-        </div>
+        </div> --}}
     </div>
     <a data-scale="0" href="https://www.jssor.com" style="display: none; position: absolute">responsive slider</a>
     <!-- Bullet Navigator -->

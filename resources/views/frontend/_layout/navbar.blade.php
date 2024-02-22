@@ -50,7 +50,7 @@
             </form>
         </div>
         <div class="flex justify-end space-x-3">
-            <div class="flex space-x-6 max-md:space-x-7 items-center  text-[#4456a6]">
+            <div class="flex space-x-6 max-md:space-x-3 items-center  text-[#4456a6]">
                 <a href="
             {{ route('wishlist') }}
             ">

@@ -7,7 +7,7 @@
                 <p class="mt-4 text-sm leading-7 font-regular uppercase">
                     Contact
                 </p>
-                <h3 class="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+                <h3 class="text-3xl text-white sm:text-4xl leading-normal font-extrabold tracking-tight">
                     Get In <span class="text-[#f15a28]">Touch</span>
                 </h3>
                 <p class="mt-4 leading-7 text-gray-200">

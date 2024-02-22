@@ -1,7 +1,7 @@
 <div class="hidden md:block w-full">
     <nav class=" flex justify-center items-center w-full z-[999]">
         <div
-            class="min-[1300px]:w-[1250px] min-[1300px]:px-0 w-full md:px-[2.5rem] px-[1.5rem]  flex items-center gap-[2.5rem] py-[1rem] ">
+            class="min-[1300px]:w-[1250px] min-[1300px]:px-0 w-full md:px-[2.5rem] px-[1.5rem]  flex items-center gap-[2.5rem] py-[0.5rem] ">
 
 
             <div id="mega-menu" class="items-center flex  justify-center  w-full">

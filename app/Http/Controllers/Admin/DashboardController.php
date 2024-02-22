@@ -35,12 +35,7 @@ class DashboardController extends Controller
         $allproducts = Product::get();
 
         $singleproduct = Product::where("id", $request->productid)->first();
-        if ($singleproduct) {
-            $productreports = Order::join("orderitems", "orderitems.order_id", "=", "orders.id")
-                ->where("orders.order_status", "DELIVERED")->whereBetween("orders.delivered_date", [$fromdate, $todate])->where("product_id", $singleproduct->id)->orderBy("orders.created_at", "asc")->select("orderitems.quantity as orderedquantity", "orderitems.product_id as orderproductid", "orders.delivered_date as orderdeliverydate", "orderitems.id as orderitemid")->get();
-        } else {
-            $productreports = "";
-        }
+
 
 
 
@@ -49,7 +44,7 @@ class DashboardController extends Controller
             ->limit(5)
             ->get();
 
-        return view("admin.dashboard", compact("totaluser", "productreports", "totalblog", "totalproduct", "totalorder", "topsellingproduct", "allproducts", "singleproduct", "fromdate", "todate"));
+        return view("admin.dashboard", compact("totaluser",  "totalblog", "totalproduct", "totalorder", "topsellingproduct", "allproducts", "singleproduct", "fromdate", "todate"));
         // return view("admin.dashboard");
     }
 

@@ -130,17 +130,13 @@ class ProductController extends Controller
     {
         $productImages = ProductImage::where('product_id', $product->id)->get();
 
-        // $attributeItems = Softsaro_Product_Attribute::join("softsaro__attributes_groups", "softsaro__attributes_groups.id", "=", "softsaro__product__attributes.attribute_group_id")
-        // ->select("softsaro__attributes_groups.*","softsaro__product__attributes.*")
-        //     ->where("product_id", $product->id)
+
+        // $attributeItems = ProductAttribute::join("attribute_groups", "attribute_groups.id", "=", "product_attributes.attribute_group_id")
+        //     ->select('product_attributes.attribute_group_id', 'attribute_groups.attribute_group_name')
+        //     ->where('product_id', $product->id)
         //     ->distinct()
         //     ->get();
-
-        $attributeItems = ProductAttribute::join("attribute_groups", "attribute_groups.id", "=", "product_attributes.attribute_group_id")
-            ->select('product_attributes.attribute_group_id', 'attribute_groups.attribute_group_name')
-            ->where('product_id', $product->id)
-            ->distinct()
-            ->get();
+        $attributeItems = ProductAttribute::where('product_id', $product->id)->get()->groupBy("attribute_group_id");
         // dd($attributeItems);
 
         $productcategories = Productcategory::where("product_id", $product->id)->get();
