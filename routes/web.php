@@ -118,6 +118,8 @@ Route::get('/products', [HomeController::class, 'filtersearch'])->name('filterse
 
 
 
+Route::get('/teams', [HomeController::class, 'teams'])->name('teams');
+
 Route::get('/termsandcondition', [HomeController::class, 'termsandcondition'])->name('termsandcondition');
 Route::get('/privacypolicy', [HomeController::class, 'privacypolicy'])->name('privacypolicy');
 
