@@ -1,20 +1,26 @@
+<script src="https://cdn.lordicon.com/lordicon.js"></script>
 <div class="max-md:block hidden px-5 py-1 bottom-0 sticky z-[999] bg-white border-t-2">
     <div class="flex items-center justify-between ">
         <a href="
         {{ route('home') }}
         "
             class="nav-link flex flex-col justify-center items-center  text-gray-500  {{ request()->is('/') ? 'active' : 'inactive' }}">
-            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="24"
+            {{-- <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home-2" width="24"
                 height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentcolor" fill="none"
                 stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                 <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
                 <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
                 <path d="M10 12h4v4h-4z" />
-            </svg>
+            </svg> --}}
+            <lord-icon src="https://cdn.lordicon.com/cnpvyndp.json"
+                @if (request()->is('/')) colors="primary:#f15a28" @else colors="php" @endif
+                trigger="morph" state="morph-home-2" style="width:25px;height:25px">
+            </lord-icon>
+            </lord-icon>
             <p class="text-xs font-medium ">Home</p>
         </a>
-        <a href="{{route("allcategories")}}"
+        <a href="{{ route('allcategories') }}"
             class="nav-link flex flex-col justify-center items-center  text-gray-500 {{ request()->is('categories') ? 'active' : 'inactive' }}">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-category-filled" width="24"
                 height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
