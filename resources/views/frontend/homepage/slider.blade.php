@@ -3,7 +3,7 @@
 {{-- <script src="js/jssor.slider-28.1.0.min.js" type="text/javascript"></script> --}}
 
 
-<style>
+<style>z
     /*jssor slider loading skin spin css*/
     .jssorl-009-spin img {
         animation-name: jssorl-009-spin;
@@ -79,12 +79,12 @@
         pointer-events: none;
     }
 </style>
-<div id="jssor_1" class="relative top-0 left-0 w-[980px] h-[380px] overflow-hidden invisible mx-auto">
+<div id="jssor_1" class="relative top-0 left-0 w-[980px] h-[330px] overflow-hidden invisible mx-auto">
     <!-- Loading Screen -->
     <div data-u="loading" class="jssorl-009-spin absolute top-0 left-0 w-full h-full text-center bg-black">
         <img class="-mt-[19px] relative top-[50%] w-[38px] h-[38px]" src="img/spin.svg" />
     </div>
-    <div data-u="slides" class="cursor-default relative top-0 left-0 w-[980px] h-[380px] overflow-hidden">
+    <div data-u="slides" class="cursor-default relative top-0 left-0 w-[980px] h-[330px] overflow-hidden">
         @foreach ($banners as $banner)
             <div>
                 <img data-u="image" src="{{ asset('uploads/' . $banner->banner_image) }}" class="object-cover" />
