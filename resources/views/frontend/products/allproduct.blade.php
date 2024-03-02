@@ -83,9 +83,11 @@
                     <div class="">
                         <div class="flex justify-between flex-wrap items-center  py-2">
                             <div class="flex gap-2">
-                                <div class="font-medium max-md:text-[18px] text-3xl text-[#4456a6]  ">
-                                    {{ $subtitle }} :
-                                </div>
+                                @if ($subtitle)
+                                    <div class="font-medium max-md:text-[18px] text-3xl text-[#4456a6]  ">
+                                        {{ $subtitle }} :
+                                    </div>
+                                @endif
                                 <div class="font-medium max-md:text-[18px] text-3xl text-[#4456a6]  ">
                                     {{ $title }}
                                 </div>
