@@ -81,10 +81,13 @@ class HomeController extends Controller
     public function products()
     {
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
         $title = "All Products";
+
         $products = Product::paginate(15);
         $params = $_GET;
-        return view("frontend.products.allproduct", compact("subtitle", "params", "title", "products"));
+        return view("frontend.products.allproduct", compact("subtitle", 'subcategories', "breadcrumbs", "params", "title", "products"));
     }
 
     public function wishlist()
@@ -761,31 +764,37 @@ class HomeController extends Controller
     public function newarrival()
     {
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
         $title = "Latest Products";
         $products = Product::latest()->paginate(15);
         $params = $_GET;
 
-        return view("frontend.products.allproduct", compact("subtitle", "params", "title", "products"));
+        return view("frontend.products.allproduct", compact("subtitle", 'breadcrumbs', 'subcategories', "params", "title", "products"));
     }
 
     public function trending()
     {
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
         $title = "Trending Products";
         $products = Product::latest()->paginate(15);
         $params = $_GET;
 
-        return view("frontend.products.allproduct", compact("subtitle", "params", "title", "products"));
+        return view("frontend.products.allproduct", compact("subtitle", "params", 'subcategories', "breadcrumbs", "title", "products"));
     }
 
     public function bestsellingproduct()
     {
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
         $title = "Top Selling Products";
         $products = Product::orderBy("total_sale", "desc")->paginate(15);
         $params = $_GET;
 
-        return view("frontend.products.allproduct", compact("subtitle", "params", "title", "products"));
+        return view("frontend.products.allproduct", compact("subtitle", 'subcategories', "breadcrumbs", "params", "title", "products"));
     }
 
     public function filtersearch(Request $request)
@@ -807,8 +816,18 @@ class HomeController extends Controller
         $params = $_GET;
         $title = "Filter Products ";
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
 
-        return view("frontend.products.allproduct", compact("title", "subtitle", "params", "products"));
+        return view("frontend.products.allproduct", compact("title", 'subcategories', "breadcrumbs", "subtitle", "params", "products"));
+    }
+
+
+
+
+    public function teams()
+    {
+        return view("frontend.outteams.teams");
     }
     public function autocomplete(Request $request)
     {
@@ -830,9 +849,11 @@ class HomeController extends Controller
         // $title = $category->categoryname;
         $title = "Search Products for (" . $query . ")";
         $subtitle = "";
+        $breadcrumbs = "";
+        $subcategories = '';
 
         $params = $_GET;
-        return view("frontend.products.allproduct", compact("title", "subtitle", "params", "products"));
+        return view("frontend.products.allproduct", compact("title", 'subcategories', "breadcrumbs", "subtitle", "params", "products"));
         // return view("frontend.categorysinglepage.list", compact("title", "products"));
     }
 
